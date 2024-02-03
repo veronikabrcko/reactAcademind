@@ -1,8 +1,15 @@
-import { CORE_CONCEPTS } from './data';
-import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept/CoreConcept.jsx';
+import Example from './components/Example/Example.jsx';
+import Header from './components/Header/Header.jsx';
+import TabButton from './components/TabButton/TabButton.jsx';
+
+import { CORE_CONCEPTS } from './data';
 
 function App() {
+  function handleSelect() {
+    console.log('Verica voli Eduarda!!!');
+  }
+
   return (
     <div>
       <Header />
@@ -19,6 +26,16 @@ function App() {
             <CoreConcept {...CORE_CONCEPTS[2]} />
             <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton onSelect={handleSelect}>Components</TabButton>
+            <TabButton onSelect={handleSelect}>JSX</TabButton>
+            <TabButton onSelect={handleSelect}>Props</TabButton>
+            <TabButton onSelect={handleSelect}>State</TabButton>
+          </menu>
+          Dynamic content
         </section>
       </main>
     </div>
