@@ -54,12 +54,8 @@ function Main() {
 function App() {
   return (
     <div>
-      {/* longer code
-      <Header></Header>
-       <Main></Main>
-       */}
       <Header />
-      <Main />
+      <Main></Main>
     </div>
   );
 }
