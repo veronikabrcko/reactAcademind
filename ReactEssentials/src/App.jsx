@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import CoreConcept from './components/CoreConcept/CoreConcept.jsx';
-import Example from './components/Example/Example.jsx';
 import Header from './components/Header/Header.jsx';
 import TabButton from './components/TabButton/TabButton.jsx';
+// import Example from './components/Example/Example.jsx';
 
 import { CORE_CONCEPTS, EXAMPLES } from './data';
 
@@ -36,14 +36,20 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept
+            {/* hard-coded Core Concept data */}
+            {/* <CoreConcept
               title={CORE_CONCEPTS[0].title}
               description={CORE_CONCEPTS[0].description}
               image={CORE_CONCEPTS[0].image}
             />
             <CoreConcept {...CORE_CONCEPTS[1]} />
             <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} /> */}
+
+            {/* dynamically pulled Core Concept data */}
+            {CORE_CONCEPTS.map((conceptItem) => (
+              <CoreConcept {...conceptItem} />
+            ))}
           </ul>
         </section>
         <section id="examples">
