@@ -8,10 +8,25 @@ import TabButton from './components/TabButton/TabButton.jsx';
 import { CORE_CONCEPTS, EXAMPLES } from './data';
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState('components');
+  const [selectedTopic, setSelectedTopic] = useState();
 
   function handleSelect(selectedButton) {
     setSelectedTopic(selectedButton);
+  }
+
+  // 4th way to display tab content
+  let tabContent = <p>Please select a topic.</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    );
   }
 
   return (
@@ -41,15 +56,40 @@ function App() {
             <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
-          <Example {...EXAMPLES[selectedTopic]} />
-          {/* ili  */}
-          {/* <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
-              <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
-          </div> */}
+          {/* 1st way to display tab content */}
+          {/* <Example {...EXAMPLES[selectedTopic]} /> */}
+
+          {/* 2nd way to display tab content */}
+          {/* or we can have Example code here  */}
+
+          {!selectedTopic ? (
+            <p>Please select a topic.</p>
+          ) : (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )}
+
+          {/* 3rd way to display tab content */}
+          {/* or we can do this, and shorten the code -> remove ternary operator and remove null */}
+
+          {/* {!selectedTopic && <p>Please select a topic.</p>}
+          {selectedTopic ? (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          ) : null} */}
+
+          {/* 4th way to display tab content -> leaner JSX code*/}
+          {/* {tabContent} */}
         </section>
       </main>
     </div>
