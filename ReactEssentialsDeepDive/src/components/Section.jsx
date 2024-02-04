@@ -1,6 +1,7 @@
-export default function Section({ title, children, id }) {
+export default function Section({ title, children, ...props }) {
+  // all extra props will be forwarded to section component
   return (
-    <section id={id}>
+    <section {...props}>
       <h2>{title}</h2>
       {children}
     </section>
