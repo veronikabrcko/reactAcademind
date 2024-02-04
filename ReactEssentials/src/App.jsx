@@ -48,7 +48,7 @@ function App() {
 
             {/* dynamically pulled Core Concept data */}
             {CORE_CONCEPTS.map((conceptItem) => (
-              <CoreConcept {...conceptItem} />
+              <CoreConcept key={conceptItem.title} {...conceptItem} />
             ))}
           </ul>
         </section>
