@@ -1,4 +1,4 @@
-import CoreConcept from './CoreConcept/CoreConcept';
+import CoreConcept from './CoreConcept/CoreConcept.jsx';
 import Section from './Section.jsx';
 
 import { CORE_CONCEPTS } from '../data.js';

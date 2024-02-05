@@ -5,7 +5,7 @@ import Header from './components/Header/Header.jsx';
 import TabButton from './components/TabButton/TabButton.jsx';
 // import Example from './components/Example/Example.jsx';
 
-import { CORE_CONCEPTS, EXAMPLES } from './data';
+import { CORE_CONCEPTS, EXAMPLES } from './data.js';
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState();
