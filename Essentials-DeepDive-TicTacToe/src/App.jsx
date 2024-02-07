@@ -90,7 +90,11 @@ function App() {
           ></Player>
         </ol>
         {winner && <p>You won, {winner}!</p>}
-        <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
+        <GameBoard
+          onSelectSquare={handleSelectSquare}
+          board={gameBoard}
+          winner={winner}
+        />
       </div>
       <Log turns={gameTurns} />
     </main>
